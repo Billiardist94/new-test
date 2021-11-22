@@ -1,0 +1,853 @@
+@import "null";
+//__________________________Fonts__________________________
+@font-face {
+  font-family: 'FuturaBookC';
+  src: url('../../fonts/futurabookc.eot'); /* IE 9 Compatibility Mode */
+  src: url('../../fonts/futurabookc.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+  url('../../fonts/futurabookc.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../../fonts/futurabookc.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+  url('../../fonts/futurabookc.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../../fonts/futurabookc.svg#futurabookc') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+@font-face {
+  font-family:"DeathStar";
+  src: url('../../fonts/death_Star.eot?') format("eot"),
+  url("../../fonts/death_Star.woff") format("woff"),
+  url("../../fonts/death_Star.ttf") format("truetype"),
+  url("../../fonts/death_Star.svg#DeathStar") format("svg");
+  font-style:normal;
+}
+@font-face {
+  font-family: 'FuturaDemiC';
+  src: url('../../fonts/futurademic.eot'); /* IE 9 Compatibility Mode */
+  src: url('../../fonts/futurademic.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+  url('../../fonts/futurademic.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../../fonts/futurademic.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+  url('../../fonts/futurademic.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../../fonts/futurademic.svg#futurademic') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+@font-face {
+  font-family: 'Futura PT';
+  src: local('Futura PT Bold'), local('Futura-PT-Bold'),
+  url('../../fonts/FuturaPT-Bold.woff2') format('woff2'),
+  url('../../fonts/FuturaPT-Bold.woff') format('woff'),
+  url('../../fonts/FuturaPT-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'FuturaLightC';
+  src: url('../../fonts/futuralightc.eot'); /* IE 9 Compatibility Mode */
+  src: url('../../fonts/futuralightc.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+  url('../../fonts/futuralightc.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../../fonts/futuralightc.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+  url('../../fonts/futuralightc.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../../fonts/futuralightc.svg#futuralightc') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+//__________________________Colors__________________________
+$background-color: #081F27;
+$background-highlight-color: #ffffff;
+$text-black: #0A1F26;
+$text-dark-blue-color: #081f27;
+$text-blue-color: #072D3F;
+$text-color: #ffffff;
+$text-color-grey: #cccccc;
+$main-yellow: #E4C85A;
+$main-yellow-rgb: 244, 145, 30;
+$second-yellow: #F5E098;
+//__________________________Mixins__________________________
+@mixin _1200 {
+  @media (max-width: 1200px){
+    @content;
+  }
+}
+@mixin _992 {
+  @media (max-width: 992px){
+    @content;
+  }
+}
+@mixin _768 {
+  @media (max-width: 768px){
+    @content;
+  }
+}
+@mixin _576 {
+  @media (max-width: 576px){
+    @content;
+  }
+}
+@mixin _320{
+  @media (max-width: 320px){
+    @content;
+  }
+}
+//__________________________Patterns__________________________
+%bg-blur{
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(30px);
+}
+%logo{
+  font-family: "DeathStar", sans-serif;
+  font-size: 26px;
+  line-height: 30px;
+  letter-spacing: 0.06em;
+  color: $text-color;
+}
+%intro-title{
+  font-family: 'Death Star', sans-serif;
+  font-size: 150px;
+  line-height: 173px;
+  letter-spacing: 0.02em;
+  margin-bottom: -25px;
+  @include _1200{
+
+  }
+  @include _992{
+    font-size: 125px;
+    line-height: 150px
+  }
+  @include _768{
+    font-size: 100px;
+    line-height: 100px;
+    margin-bottom: -10px;
+  }
+  @include _576{
+    font-size: 75px;
+    line-height: 75px;
+  }
+  @include _320{
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+%intro-subtitle{
+  font-family: 'FuturaDemiC', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 42px;
+  letter-spacing: 0.795em;
+  text-transform: uppercase;
+  color: $main-yellow;
+  margin-bottom: 36px;
+  @include _1200{
+
+  }
+  @include _992{
+    font-size: 30px;
+  }
+  @include _768{
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  @include _576{
+    font-size: 18px;
+  }
+  @include _320 {
+    font-size: 9.5px;
+    margin-bottom: 12px;
+  }
+}
+%block-header{
+  font-family: 'Futura PT', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 50px;
+  color: $main-yellow;
+  margin-bottom: 120px;
+  @include _992{
+
+  }
+  @include _768{
+    font-size: 48px;
+    line-height: 50px;
+    margin-bottom: 50px;
+  }
+  @include _320{
+    font-size: 30px;
+    line-height: 30px;
+    margin-bottom: 30px;
+  }
+}
+%block-border{
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+%yellow-btn{
+  align-items: center;
+  padding: 26px 48px;
+  background-color: $second-yellow;
+  border-radius: 50px;
+  font-family: 'FuturaDemiC', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #081F27;
+  transition: .3s;
+  &:hover{
+    transform: scale(1.05);
+  }
+}
+%second-font-style{
+  font-family: 'FuturaLightC', sans-serif;
+  font-size: 24px;
+  line-height: 26px;
+  color: $text-color-grey;
+}
+%h4-header{
+  font-family: 'FuturaDemiC', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 33px;
+}
+%margin-blocks{
+  margin-bottom: 250px;
+  @include _1200{
+    margin-bottom: 200px;
+  }
+  @include _992{
+    margin-bottom: 150px;
+  }
+  @include _768{
+    margin-bottom: 100px;
+  }
+  @include _576{
+    margin-bottom: 50px;
+  }
+}
+//__________________________BODY, WRAPPER, CONTAINER, CONTENT__________________________
+body{
+  background-color: $background-color;
+  font-family: 'FuturaBookC', sans-serif;
+  color: $text-color;
+}
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-image: url('../../images/background.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+}
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.content{
+  flex: 1 1 auto;
+}
+//__________________________HEADER__________________________
+.header{
+  @extend %bg-blur;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  margin-bottom: 75px;
+  @include _1200{
+
+  }
+  @include _992{
+    margin-bottom: 50px;
+  }
+  @include _768{
+    margin-bottom: 50px;
+  }
+  @include _576{
+    margin-bottom: 50px;
+  }
+  @include _320{
+    margin-bottom: 30px;
+  }
+  .header__row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    .header__logo{
+      a{
+        @extend %logo;
+      }
+    }
+    .header__menu{
+      height: 48px;
+      width: 48px;
+    }
+  }
+}
+//__________________________INTRO__________________________
+.intro{
+  margin-bottom: 132px;
+  .intro__row{
+    display: flex;
+    justify-content: flex-start;
+    @include _320{
+      display: block;
+    }
+    .intro__body{
+      flex: 0 1 50%;
+      @include _768{
+        flex: 0 1 100%;
+      }
+      .intro__title{
+        @extend %intro-title;
+      }
+      .intro__subtitle{
+        @extend %intro-subtitle;
+      }
+      .intro__counter{
+        width: 224px;
+        margin: 0 auto 30px auto;
+        @include _320{
+          text-align: center;
+          margin-bottom: 10px;
+        }
+        .counter-text{
+          @extend %intro-subtitle;
+          font-size: 20px;
+          line-height: 28px;
+          letter-spacing: 0.075em;
+          margin-bottom: 3px;
+          @include _320{
+            font-size: 16px;
+            line-height: 16px;
+          }
+        }
+        .counter-number{
+          background: linear-gradient(85.99deg, rgba(253, 253, 253, 0.03) 0.95%, rgba(253, 253, 253, 0.3) 53.47%, rgba(253, 253, 253, 0) 107.84%);
+          text-align: center;
+          position: relative;
+          height: 92px;
+          @include _320{
+            height: 50px;
+          }
+          p{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            span:first-child{
+              font-family: 'Death Star', sans-serif;
+              font-size: 40px;
+              line-height: 46px;
+              letter-spacing: 0.215em;
+              color: $text-color;
+              @include _320{
+                font-size: 24px;
+                line-height: 20px;
+              }
+            }
+            span:last-child{
+              font-family: 'FuturaDemiC', sans-serif;
+              font-weight: 600;
+              font-size: 14px;
+              line-height: 138.5%;
+              letter-spacing: 0.075em;
+              text-transform: uppercase;
+              @include _320{
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+      .intro__links{
+        @include _768{
+          text-align: center;
+        }
+        .intro__text{
+          font-family: 'FuturaBookC', sans-serif;
+          font-size: 36px;
+          line-height: 41px;
+          color: #CFCFCF;
+          margin-bottom: 39px;
+          @include _768{
+            font-size: 25px;
+            line-height: 35px;
+            margin-bottom: 15px;
+          }
+          @include _320{
+            font-size: 20px;
+            line-height: 20px;
+          }
+        }
+        .intro__btn{
+          display: inline-flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          button{
+            background-color: transparent;
+            border-radius: 40px;
+            overflow: hidden;
+            transition: .3s;
+            &:hover{
+              transform: scale(1.05);
+            }
+          }
+          button:first-child{
+            margin-right: 27px;
+            @include _992{
+              margin-right: 8px;
+            }
+            @include _320{
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//__________________________PRICES__________________________
+.prices{
+  margin-bottom: 283px;
+  @include _768{
+    margin-bottom: 100px;
+  }
+  .prices__row{
+    display: flex;
+    justify-content: center;
+    .prices__body{
+      background-image: url("../../images/vector-prices.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-clip: content-box;
+      width: 694px;
+      height: 665px;
+      .prices__content{
+        background: url("../../images/stars.png") no-repeat;
+        background-origin: content-box;
+        display: flex;
+        justify-content: space-between;
+        width: 694px;
+        height: 665px;
+        padding-top: 20px;
+        padding-right: 40px;
+        padding-bottom: 45px;
+        padding-left: 50px;
+      }
+        .prices__text{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          align-self: flex-end;
+          width: 442px;
+          .prices__rate{
+            text-align: center;
+            margin-bottom: 24px;
+            span:first-child{
+              font-family: 'Futura PT', sans-serif;
+              font-size: 60px;
+              line-height: 50px;
+              color: $second-yellow;
+            }
+            span:nth-child(2){
+              font-size: 36px;
+              line-height: 40.75px;
+              color: $text-color-grey;
+            }
+            p{
+              font-family: 'FuturaLightC', sans-serif;
+              margin-top: 17px;
+              font-size: 14px;
+              line-height: 15px;
+              color: $text-color-grey;
+            }
+            &:after{
+              content: '';
+              display: block;
+              height: .5px;
+              background: $text-color-grey;
+              width: 287px;
+              margin-top: 16px;
+            }
+          }
+          .prices__weeks{
+            margin-bottom: 19px;
+            div{
+              span:nth-child(2){
+                font-size: 36px;
+                line-height: 41px;
+                margin-left: 22px;
+              }
+            }
+          }
+          .prices__description{
+            font-family: 'FuturaLightC', sans-serif;
+            font-size: 24px;
+            line-height: 26px;
+            text-align: center;
+            color: $text-color-grey;
+            margin-bottom: 50px;
+          }
+          .prices__button{
+            button{
+              @extend %yellow-btn;
+            }
+          }
+        }
+        .prices__rocket{
+          transform: rotate(2.65deg);
+      }
+    }
+  }
+}
+//__________________________ADVANTAGES__________________________
+.advantages{
+  @extend %margin-blocks;
+  .advantages__header{
+    @extend %block-header;
+  }
+  .advantages__row{
+    .advantages__list{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 40px 30px;
+      @include _1200 {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 30px 20px;
+      }
+      @include _992 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px 30px;
+      }
+      @include _768 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px 20px;
+      }
+      @include _576 {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px 20px;
+      }
+      @include _320 {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 20px 10px;
+      }
+      .advantages__item{
+        @extend %block-border;
+        @extend %bg-blur;
+        padding: 30px 30px 40px;
+        text-align: center;
+        .item__content{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .item__logo{
+            margin-bottom: 20px;
+            width: 70px;
+            height: 70px;
+            background-color: $main-yellow;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .item__header{
+            @extend %h4-header;
+            margin-bottom: 10px;
+          }
+          .item__text{
+            font-family: 'FuturaLightC', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 26px;
+            color: $text-color-grey;
+          }
+        }
+      }
+    }
+  }
+}
+//__________________________COURSE_IN_PHONE__________________________
+.course{
+  @extend %margin-blocks;
+  .course__row{
+    display: flex;
+    @include _768{
+      flex-direction: column;
+    }
+    .course__header{
+      @extend %block-header;
+      line-height: 65px;
+      margin-right: 112px;
+    }
+    .course__body{
+      .course__text{
+        @extend %second-font-style;
+        margin-bottom: 30px;
+        padding-top: 25px;
+        @include _768{
+          padding: 0;
+        }
+      }
+      .course__btn{
+        @extend %yellow-btn;
+      }
+    }
+  }
+}
+//__________________________PROGRAM__________________________
+.program{
+  @extend %margin-blocks;
+  .program__header{
+  @extend %block-header;
+  }
+  .program__row{
+    .program__list{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 40px;
+      .program__item{
+        @extend %block-border;
+        @extend %bg-blur;
+        padding: 30px;
+        .item__content{
+          display: flex;
+          .item__logo{
+            flex-shrink: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid $second-yellow;
+            margin-right: 60px;
+            position: relative;
+            .item__num{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-family: 'FuturaDemiC', sans-serif;
+              font-style: normal;
+              font-weight: 600;
+              font-size: 60px;
+              line-height: 70px;
+              color: $second-yellow;
+            }
+          }
+          .item__body{
+            .item__header{
+              @extend %h4-header;
+              margin-bottom: 20px;
+            }
+            .item__list{
+              .item__list-item{
+                @extend %second-font-style;
+                margin-bottom: 5px;
+                &:before{
+                  content: url("../../images/star-item.svg");
+                  margin-right: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//__________________________REVIEWS__________________________
+.reviews{
+  @extend %margin-blocks;
+  .reviews__row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .reviews__header{
+      @extend %block-header;
+    }
+    .reviews__slider.swiper{
+      overflow: initial;
+      width: 100%;
+      .slider__list{
+        display: flex;
+        max-width: 770px;
+        margin: 0 auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        width: 100%;
+        position: relative;
+        .slider__item{
+          .item__content{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            .item__top{
+              display: flex;
+              align-items: center;
+              margin-bottom: 40px;
+              .item__logo{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 30px;
+                img{
+                  width: 100%;
+                }
+              }
+              .item__header{
+                @extend %h4-header;
+              }
+            }
+            .item__text{
+              p{
+                @extend %second-font-style;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//__________________________COMPANIES__________________________
+.companies{
+  @extend %margin-blocks;
+  .companies__row{
+    .companies__header{
+      @extend %block-header;
+      text-align: center;
+    }
+    .companies__slider{
+      .slider__list{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 115px 20px;
+        .slider__item{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+}
+//__________________________CERTIFICATE__________________________
+.certificate{
+  @extend %margin-blocks;
+  .certificate__row{
+    display: flex;
+    justify-content: center;
+    .certificate__img{
+      width: 860px;
+      height: 612px;
+      overflow: hidden;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+//__________________________FAQ__________________________
+.faq{
+  @extend %margin-blocks;
+  .faq__row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .faq__header{
+      @extend %block-header;
+    }
+    .faq__slider{
+      .slider__list{
+        max-width: 770px;
+        .slider__item{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          .item__logo{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            @extend %bg-blur;
+            @extend %block-border;
+            position: relative;
+            .item__num{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-family: 'FuturaDemiC', sans-serif;
+              font-style: normal;
+              font-weight: 600;
+              font-size: 60px;
+              line-height: 70px;
+              color: $second-yellow;
+            }
+          }
+          .item__header{
+            @extend %h4-header;
+            margin-bottom: 40px;
+          }
+          .item__text{
+            @extend %second-font-style;
+          }
+        }
+      }
+    }
+  }
+}
+//__________________________FOOTER__________________________
+.footer{
+  @extend %bg-blur;
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  .footer__row{
+    display: flex;
+    height: 260px;
+    padding: 55px 0;
+    justify-content: space-between;
+    @include _992{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 150px;
+    }
+    .footer__logo{
+      margin-right: 130px;
+      @include _992{
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+      a{
+        @extend %logo;
+      }
+    }
+    .footer-nav{
+      display: flex;
+      flex: 1 1 auto;
+      @include _992{
+        display: none;
+      }
+      .footer__list{
+        &:first-child{
+          margin-right: 145px;
+        }
+        .footer__item{
+          margin-bottom: 15px;
+          a{
+            font-style: normal;
+            font-weight: normal;
+            font-size: 24px;
+            line-height: 26px;
+            color: #CFCFCF;
+            &:hover{
+              color: $main-yellow;
+            }
+          }
+        }
+      }
+    }
+    .footer__link{
+      a{
+        &:first-child{
+          margin-right: 50px;
+        }
+      }
+    }
+  }
+}
