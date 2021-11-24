@@ -96,7 +96,7 @@ $second-yellow: #F5E098;
 %intro-title{
   font-family: 'Death Star', sans-serif;
   font-size: 150px;
-  line-height: 173px;
+  line-height: 156px;
   letter-spacing: 0.02em;
   margin-bottom: -25px;
   @include _1200{
@@ -157,12 +157,18 @@ $second-yellow: #F5E098;
   color: $main-yellow;
   margin-bottom: 120px;
   @include _992{
-
+    font-size: 48px;
+    line-height: 50px;
   }
   @include _768{
     font-size: 48px;
     line-height: 50px;
     margin-bottom: 50px;
+  }
+  @include _576{
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 40px;
   }
   @include _320{
     font-size: 30px;
@@ -176,7 +182,7 @@ $second-yellow: #F5E098;
 %yellow-btn{
   align-items: center;
   padding: 26px 48px;
-  background-color: $second-yellow;
+  background: $second-yellow linear-gradient($second-yellow, $main-yellow);
   border-radius: 50px;
   font-family: 'FuturaDemiC', sans-serif;
   font-weight: 600;
@@ -189,18 +195,46 @@ $second-yellow: #F5E098;
   &:hover{
     transform: scale(1.05);
   }
+  &:active{
+    background-color: $main-yellow;
+  }
+  @include _576{
+    padding: 20px 40px;
+    font-size: 16px;
+  }
 }
 %second-font-style{
   font-family: 'FuturaLightC', sans-serif;
   font-size: 24px;
   line-height: 26px;
   color: $text-color-grey;
+  @include _768{
+    font-size: 20px;
+  }
+  @include _576{
+    font-size: 18px;
+  }
+  @include _320{
+    font-size: 16px;
+  }
 }
 %h4-header{
   font-family: 'FuturaDemiC', sans-serif;
   font-weight: 600;
   font-size: 28px;
   line-height: 33px;
+  @include _768{
+    font-size: 26px;
+    line-height: 30px;
+  }
+  @include _576{
+    font-size: 24px;
+    line-height: 28px;
+  }
+  @include _320{
+    font-size: 20px;
+    line-height: 20px;
+  }
 }
 %margin-blocks{
   margin-bottom: 250px;
@@ -215,6 +249,68 @@ $second-yellow: #F5E098;
   }
   @include _576{
     margin-bottom: 50px;
+  }
+}
+%logo-circle{
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  @include _576{
+    width: 80px;
+    height: 80px;
+  }
+  @include _320{
+    width: 60px;
+    height: 60px;
+  }
+}
+%logo-num{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'FuturaDemiC', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 70px;
+  color: $second-yellow;
+  @include _576{
+    font-size: 50px;
+  }
+  @include _320{
+    font-size: 40px;
+  }
+}
+%slider-btn{
+  .swiper-button-prev::after,
+  .swiper-button-next::after{
+    color: $second-yellow;
+    font-size: 35px;
+    font-weight: bold;
+    transition: .3s;
+    @include _320{
+      opacity: .2;
+    }
+  }
+  .swiper-button-prev{
+    left: 0;
+    &:hover::after{
+      transform: scale(1.2);
+    }
+    &:active::after{
+      color: $main-yellow;
+    }
+  }
+  .swiper-button-next{
+    right: 0;
+    &:hover::after{
+      transform: scale(1.2);
+    }
+    &:active::after{
+      color: $main-yellow;
+    }
   }
 }
 //__________________________BODY, WRAPPER, CONTAINER, CONTENT__________________________
@@ -232,6 +328,9 @@ body{
   background-repeat: no-repeat;
   background-position: top;
   background-size: contain;
+  @include _320{
+    background-position: 0 50px;
+  }
 }
 .container{
   max-width: 1200px;
@@ -240,26 +339,28 @@ body{
 }
 .content{
   flex: 1 1 auto;
+  @include _320{
+    margin-top: 100px;
+  }
 }
 //__________________________HEADER__________________________
 .header{
   @extend %bg-blur;
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-  margin-bottom: 75px;
-  @include _1200{
-
-  }
-  @include _992{
-    margin-bottom: 50px;
+  margin-bottom: 60px;
+  @media (orientation: landscape){
+    margin-bottom: 30px;
   }
   @include _768{
-    margin-bottom: 50px;
+    margin-bottom: 60px;
   }
   @include _576{
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   @include _320{
-    margin-bottom: 30px;
+    position: fixed;
+    width: 100%;
+    z-index: 90;
   }
   .header__row{
     display: flex;
@@ -280,6 +381,9 @@ body{
 //__________________________INTRO__________________________
 .intro{
   margin-bottom: 132px;
+  @include _320{
+    margin-bottom: 0;
+  }
   .intro__row{
     display: flex;
     justify-content: flex-start;
@@ -296,10 +400,20 @@ body{
       }
       .intro__subtitle{
         @extend %intro-subtitle;
+        margin-bottom: 40px;
+        @media (orientation: landscape){
+          margin-bottom: 10px;
+        }
+        @include _768{
+          margin-bottom: 60px;
+        }
       }
       .intro__counter{
         width: 224px;
         margin: 0 auto 30px auto;
+        @media (orientation: landscape){
+          margin: 0 auto 10px auto;
+        }
         @include _320{
           text-align: center;
           margin-bottom: 10px;
@@ -315,39 +429,42 @@ body{
             line-height: 16px;
           }
         }
-        .counter-number{
-          background: linear-gradient(85.99deg, rgba(253, 253, 253, 0.03) 0.95%, rgba(253, 253, 253, 0.3) 53.47%, rgba(253, 253, 253, 0) 107.84%);
-          text-align: center;
-          position: relative;
-          height: 92px;
-          @include _320{
-            height: 50px;
-          }
-          p{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            span:first-child{
-              font-family: 'Death Star', sans-serif;
-              font-size: 40px;
-              line-height: 46px;
-              letter-spacing: 0.215em;
-              color: $text-color;
-              @include _320{
-                font-size: 24px;
-                line-height: 20px;
-              }
+        .counter__link{
+          color: $text-color;        
+          .counter-number{
+            background: linear-gradient(85.99deg, rgba(253, 253, 253, 0.03) 0.95%, rgba(253, 253, 253, 0.3) 53.47%, rgba(253, 253, 253, 0) 107.84%);
+            text-align: center;
+            position: relative;
+            height: 92px;
+            @include _320{
+              height: 50px;
             }
-            span:last-child{
-              font-family: 'FuturaDemiC', sans-serif;
-              font-weight: 600;
-              font-size: 14px;
-              line-height: 138.5%;
-              letter-spacing: 0.075em;
-              text-transform: uppercase;
-              @include _320{
-                font-size: 10px;
+            p{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              span:first-child{
+                font-family: 'Death Star', sans-serif;
+                font-size: 40px;
+                line-height: 46px;
+                letter-spacing: 0.215em;
+                color: $text-color;
+                @include _320{
+                  font-size: 24px;
+                  line-height: 20px;
+                }
+              }
+              span:last-child{
+                font-family: 'FuturaDemiC', sans-serif;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 138.5%;
+                letter-spacing: 0.075em;
+                text-transform: uppercase;
+                @include _320{
+                  font-size: 10px;
+                }
               }
             }
           }
@@ -362,11 +479,10 @@ body{
           font-size: 36px;
           line-height: 41px;
           color: #CFCFCF;
-          margin-bottom: 39px;
+          margin-bottom: 15px;
           @include _768{
             font-size: 25px;
             line-height: 35px;
-            margin-bottom: 15px;
           }
           @include _320{
             font-size: 20px;
@@ -374,24 +490,25 @@ body{
           }
         }
         .intro__btn{
-          display: inline-flex;
-          flex-wrap: wrap;
-          justify-content: center;
+          display: flex;
+          justify-content: space-around;
+          @include _576{
+            flex-direction: column;
+            align-items: center;
+          }
           button{
             background-color: transparent;
             border-radius: 40px;
             overflow: hidden;
             transition: .3s;
+            width: 245px;
+            height: 71px;
             &:hover{
               transform: scale(1.05);
             }
           }
           button:first-child{
-            margin-right: 27px;
-            @include _992{
-              margin-right: 8px;
-            }
-            @include _320{
+            @include _576{
               margin-bottom: 10px;
             }
           }
@@ -406,9 +523,18 @@ body{
   @include _768{
     margin-bottom: 100px;
   }
+  @include _320{
+    margin-bottom: 0;
+  }
   .prices__row{
     display: flex;
     justify-content: center;
+    @include _576{
+      transform: rotate(-30deg) scale(0.9);
+    }
+    @include _320{
+      transform: rotate(-45deg) scale(0.55);
+    }
     .prices__body{
       background-image: url("../../images/vector-prices.png");
       background-position: center;
@@ -434,6 +560,12 @@ body{
           align-items: center;
           align-self: flex-end;
           width: 442px;
+          @include _576{
+            transform: rotate(30deg);
+          }
+          @include _320{
+            transform: rotate(45deg);
+          }
           .prices__rate{
             text-align: center;
             margin-bottom: 24px;
@@ -454,6 +586,10 @@ body{
               font-size: 14px;
               line-height: 15px;
               color: $text-color-grey;
+              @include _320{
+                font-size: 20px;
+                line-height: 20px;
+              }
             }
             &:after{
               content: '';
@@ -462,6 +598,9 @@ body{
               background: $text-color-grey;
               width: 287px;
               margin-top: 16px;
+              @include _320{
+                width: 345px;
+              }
             }
           }
           .prices__weeks{
@@ -530,6 +669,9 @@ body{
         @extend %bg-blur;
         padding: 30px 30px 40px;
         text-align: center;
+        @include _320{
+          padding: 10px;
+        }
         .item__content{
           display: flex;
           flex-direction: column;
@@ -543,18 +685,16 @@ body{
             display: flex;
             justify-content: center;
             align-items: center;
+            @include _320{
+              margin-bottom: 10px;
+            }
           }
           .item__header{
             @extend %h4-header;
             margin-bottom: 10px;
           }
           .item__text{
-            font-family: 'FuturaLightC', sans-serif;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 24px;
-            line-height: 26px;
-            color: $text-color-grey;
+            @extend %second-font-style;
           }
         }
       }
@@ -566,22 +706,33 @@ body{
   @extend %margin-blocks;
   .course__row{
     display: flex;
-    @include _768{
-      flex-direction: column;
-    }
+    flex-direction: column;
     .course__header{
       @extend %block-header;
-      line-height: 65px;
-      margin-right: 112px;
+      margin-bottom: 90px;
+      @include _992{
+        line-height: 50px;
+      }
+      @include _768{
+        line-height: 50px;
+      }
+      @include _576{
+        line-height: 40px;
+      }
+      @include _320{
+        line-height: 30px;
+      }
     }
     .course__body{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      @include _576{
+        align-items: center;
+      }
       .course__text{
         @extend %second-font-style;
         margin-bottom: 30px;
-        padding-top: 25px;
-        @include _768{
-          padding: 0;
-        }
       }
       .course__btn{
         @extend %yellow-btn;
@@ -598,40 +749,77 @@ body{
   .program__row{
     .program__list{
       display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      grid-gap: 40px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+      @include _768{
+        grid-gap: 20px;
+      }
+      @include _576{
+        grid-template-columns: repeat(1, 1fr);
+      }
       .program__item{
         @extend %block-border;
         @extend %bg-blur;
         padding: 30px;
+        @include _768{
+          padding: 25px;
+        }
+        @include _320{
+          padding: 10px;
+        }
         .item__content{
           display: flex;
-          .item__logo{
-            flex-shrink: 0;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 1px solid $second-yellow;
-            margin-right: 60px;
-            position: relative;
-            .item__num{
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              font-family: 'FuturaDemiC', sans-serif;
-              font-style: normal;
-              font-weight: 600;
-              font-size: 60px;
-              line-height: 70px;
-              color: $second-yellow;
+          flex-direction: column;
+          @include _576{
+            align-items: center;
+            flex-direction: column;
+          }
+          .item__top{
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            @include _992{
+              align-items: flex-start;
+            }
+            @include _768{
+              flex-direction: column;
+              align-items: center;
+            }
+            @include _576{
+              margin-bottom: 20px;
+            }
+            .item__logo{
+              @extend %logo-circle;
+              border: 1px solid $second-yellow;
+              margin-right: 30px;
+              position: relative;
+              @include _768{
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 80px;
+                height: 80px;
+              }
+              @include _576{
+                margin-bottom: 10px;
+              }
+              .item__num{
+                @extend %logo-num;
+                @include _768{
+                  font-size: 50px;
+                }
+              }
+            }
+            .item__header{
+              @extend %h4-header;
+              @include _768{
+                text-align: center;
+              }
+              @include _320{
+                margin-bottom: 10px;
+              }
             }
           }
           .item__body{
-            .item__header{
-              @extend %h4-header;
-              margin-bottom: 20px;
-            }
             .item__list{
               .item__list-item{
                 @extend %second-font-style;
@@ -655,72 +843,161 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
+    position: relative;
+    max-width: 970px;
     .reviews__header{
       @extend %block-header;
     }
-    .reviews__slider.swiper{
-      overflow: initial;
+    .swiper{
       width: 100%;
-      .slider__list{
-        display: flex;
-        max-width: 770px;
-        margin: 0 auto;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        width: 100%;
-        position: relative;
-        .slider__item{
-          .item__content{
+      @include _320{
+        width:300px;
+      }
+      .swiper-wrapper{
+        .swiper-slide{
+          padding: 0 100px;
+          @include _992{
+            padding: 0 80px;
+          }
+          @include _576{
+            padding: 0 50px;
+          }
+          @include _320{
+            padding: 0;
+          }
+          .item__top{
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            .item__top{
-              display: flex;
-              align-items: center;
-              margin-bottom: 40px;
-              .item__logo{
+            align-items: center;
+            margin-bottom: 40px;
+            @include _576{
+              flex-direction: column;
+              margin-bottom: 30px;
+            }
+            @include _320{
+              margin-bottom: 20px;
+            }
+            .item__logo{
+              @extend %logo-circle;
+              overflow: hidden;
+              margin-right: 30px;
+              @include _576{
                 width: 100px;
                 height: 100px;
-                border-radius: 50%;
-                overflow: hidden;
-                margin-right: 30px;
-                img{
-                  width: 100%;
-                }
+                margin-right: 0;
+                margin-bottom: 20px;
               }
-              .item__header{
-                @extend %h4-header;
+              @include _320{
+                width: 80px;
+                height: 80px;
+                margin-bottom: 10px;
+              }
+              img{
+                width: 100%;
               }
             }
-            .item__text{
-              p{
-                @extend %second-font-style;
+            .item__header{
+              @extend %h4-header;
+            }
+          }
+          .item__text{
+            p{
+              @extend %second-font-style;
+              @include _576{
+                text-align: justify;
               }
             }
           }
         }
       }
+      @extend %slider-btn;
     }
   }
 }
 //__________________________COMPANIES__________________________
 .companies{
   @extend %margin-blocks;
+  @include _1200{
+    margin-bottom: 200px;
+  }
+  @include _576{
+    margin-bottom: 100px;
+  }
   .companies__row{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    max-width: 1360px;
     .companies__header{
       @extend %block-header;
       text-align: center;
     }
-    .companies__slider{
-      .slider__list{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 115px 20px;
-        .slider__item{
+    .swiper{
+      width: 100%;
+      .swiper-wrapper{
+        .swiper-slide{
           display: flex;
-          justify-content: center;
+          flex-direction: column;
           align-items: center;
+          justify-content: space-evenly;
+          height: auto;
+          .item__top{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 200px;
+            @include _576{
+              height: 150px;
+            }
+            img{
+              max-width: 100%;
+            }
+          }
+          .item__bottom{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            @include _576{
+              height: 150px;
+            }
+            img{
+              max-width: 100%;
+            }
+          }
         }
+      }
+    }
+    @extend %slider-btn;
+    .swiper-button-prev,
+    .swiper-button-next{
+      top: 65%;
+      @include _1200{
+        display: none;
+      }
+    }
+    .swiper-button-prev{
+      left: -40px;
+    }
+    .swiper-button-next{
+      right: -40px;
+    }
+    .swiper-pagination{
+      display: none;
+      @include _1200{
+        display: block;
+        bottom: -10%;
+      }
+      @include _576{
+        bottom: -5%;
+      }
+      .swiper-pagination-bullet{
+        background: $main-yellow;
+        width: var(--swiper-pagination-bullet-width,var(--swiper-pagination-bullet-size,10px));
+        height: var(--swiper-pagination-bullet-height,var(--swiper-pagination-bullet-size,10px));
       }
     }
   }
@@ -732,9 +1009,6 @@ body{
     display: flex;
     justify-content: center;
     .certificate__img{
-      width: 860px;
-      height: 612px;
-      overflow: hidden;
       img{
         width: 100%;
       }
@@ -748,36 +1022,84 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
+    position: relative;
+    max-width: 970px;
     .faq__header{
       @extend %block-header;
     }
-    .faq__slider{
-      .slider__list{
-        max-width: 770px;
-        .slider__item{
+    .swiper{
+      width: 100%;
+      @include _320{
+        width:300px;
+      }
+      .swiper-wrapper{
+        .swiper-slide{
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          padding: 0 100px;
+          @include _992{
+            padding: 0 80px;
+          }
+          @include _576{
+            padding: 0 50px;
+          }
+          @include _320{
+            padding: 0;
+          }
+          .item__top{
+            margin-bottom: 40px;
+            @include _576{
+              flex-direction: column;
+              margin-bottom: 30px;
+            }
+            @include _320{
+              margin-bottom: 20px;
+            }
+            .item__logo{
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              overflow: hidden;
+              margin-right: 30px;
+              flex-shrink: 0;
+              text-align: center;
+              @include _576{
+                margin-right: 0;
+                margin-bottom: 20px;
+              }
+              @include _320{
+                margin-bottom: 10px;
+              }
+              img{
+                width: 100%;
+              }
+            }
+            .item__header{
+              @extend %h4-header;
+            }
+          }
+          .item__text{
+            p{
+              @extend %second-font-style;
+              @include _576{
+                text-align: justify;
+              }
+            }
+          }
           .item__logo{
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+            @extend %logo-circle;
             margin-bottom: 30px;
             @extend %bg-blur;
             @extend %block-border;
             position: relative;
+            @include _576{
+              margin-right: 0;
+              margin-bottom: 10px;
+            }
             .item__num{
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              font-family: 'FuturaDemiC', sans-serif;
-              font-style: normal;
-              font-weight: 600;
-              font-size: 60px;
-              line-height: 70px;
-              color: $second-yellow;
+              @extend %logo-num;
             }
           }
           .item__header{
@@ -788,6 +1110,11 @@ body{
             @extend %second-font-style;
           }
         }
+      }
+      @extend %slider-btn;
+      .swiper-button-prev,
+      .swiper-button-next{
+        top: 65%;
       }
     }
   }
@@ -835,6 +1162,7 @@ body{
             font-size: 24px;
             line-height: 26px;
             color: #CFCFCF;
+            transition: .3s;
             &:hover{
               color: $main-yellow;
             }

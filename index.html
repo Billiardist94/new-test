@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="%23source/css/style.css">
     <link href="https://fonts.cdnfonts.com/css/akrobat?styles=16717,28195" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/vagrounded-bt" rel="stylesheet">
-    <link href="https://www.1001fonts.com/death-star-font.html" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <title>New Test</title>
+    <link rel="stylesheet" href="/dist/css/lightbox.css">
+    <title>IT SCHOOL</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
             </div>
         </header>
         <div class="content">
-            <section class="intro">
+            <section class="intro" id="intro">
                 <div class="container">
                     <div class="intro__row">
                         <div class="intro__body">
@@ -40,22 +40,24 @@
                             <h4 class="intro__subtitle">Тестирование</h4>
                             <div class="intro__counter">
                                 <p class="counter-text">Уже нашли работу</p>
-                                <div class="counter-number">
-                                    <p>
-                                        <span>17</span>
-                                        <br>
-                                        <span>студентов</span>
-                                    </p>
-                                </div>
+                                <a href="#reviews" class="counter__link">
+                                    <div class="counter-number">
+                                        <p>
+                                            <span>17</span>
+                                            <br>
+                                            <span>студентов</span>
+                                        </p>
+                                    </div>
+                                </a>
                             </div>
                             <div class="intro__links">
                                 <p class="intro__text">По ссылкам ниже вы можете <br> записаться на курс или задать
                                     вопрос</p>
                                 <div class="intro__btn">
-                                    <button onclick="window.location.href = 'https://telegram.org'" type="button">
+                                    <button onclick="window.open('https://t.me/denischensky', '_blank')" type="button">
                                         <img src="./images/telegram-btn.png" alt="telegram">
                                     </button>
-                                    <button onclick="window.location.href = 'https://instagram.com'" type="button">
+                                    <button onclick="window.open('https://www.instagram.com/rocket_science_it_courses/', '_blank')" type="button">
                                         <img src="./images/instagram-btn.png" alt="instagram">
                                     </button>
                                 </div>
@@ -64,7 +66,7 @@
                     </div>
                 </div>
             </section>
-            <section class="prices">
+            <section class="prices" id="prices">
                 <div class="container">
                     <div class="prices__row">
                         <div class="prices__body">
@@ -120,7 +122,7 @@
                     </div>
                 </div>
             </section>
-            <section class="advantages">
+            <section class="advantages" id="advantages">
                 <div class="container">
                     <h2 class="advantages__header">Наши преимущества</h2>
                     <div class="advantages__row">
@@ -232,7 +234,7 @@
                     </div>
                 </div>
             </section>
-            <section class="course">
+            <section class="course" id="course">
                 <div class="container">
                     <div class="course__row">
                         <h2 class="course__header">Весь курс в твоем смартфоне</h2>
@@ -242,23 +244,25 @@
                                 по всем темам курса. Теперь все материалы у вас под рукой. Вы можете учиться даже по
                                 дороге
                                 домой или на работу!</p>
-                            <button class="course__btn" type="button">Попробовать</button>
+                            <button onclick="window.open('https://rocket_science_school.relesystest.net/#/?user=Rt38Gob5C4&isPreview=true', '_blank')" class="course__btn">Попробовать</button>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="program">
+            <section class="program" id="program">
                 <div class="container">
                     <h2 class="program__header">Программа курса</h2>
                     <div class="program__row">
                         <ul class="program__list">
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">1</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">1</div>
+                                        </div>
+                                        <h4 class="item__header">Введение в тестирование</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Введение в тестирование</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг</li>
                                             <li class="item__list-item">Какие бывают источники ожидаемого результата
@@ -273,12 +277,13 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">2</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">2</div>
+                                        </div>
+                                        <h4 class="item__header">Зачем нужны баг-трекинговые системы</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Зачем нужны баг-трекинговые
-                                            системы</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг-трекинговые системы</li>
                                             <li class="item__list-item">Плюсы использования баг-трекинговых систем</li>
@@ -290,11 +295,13 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">3</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">3</div>
+                                        </div>
+                                        <h4 class="item__header">Введение в тестирование</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Введение в тестирование</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг</li>
                                             <li class="item__list-item">Какие бывают источники ожидаемого результата
@@ -309,12 +316,13 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">4</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">4</div>
+                                        </div>
+                                        <h4 class="item__header">Зачем нужны баг-трекинговые системы</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Зачем нужны баг-трекинговые
-                                            системы</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг-трекинговые системы</li>
                                             <li class="item__list-item">Плюсы использования баг-трекинговых систем</li>
@@ -326,11 +334,13 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">5</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">5</div>
+                                        </div>
+                                        <h4 class="item__header">Введение в тестирование</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Введение в тестирование</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг</li>
                                             <li class="item__list-item">Какие бывают источники ожидаемого результата
@@ -345,12 +355,13 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">6</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">6</div>
+                                        </div>
+                                        <h4 class="item__header">Зачем нужны баг-трекинговые системы</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Зачем нужны баг-трекинговые
-                                            системы</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг-трекинговые системы</li>
                                             <li class="item__list-item">Плюсы использования баг-трекинговых систем</li>
@@ -362,11 +373,13 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">7</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">7</div>
+                                        </div>
+                                        <h4 class="item__header">Введение в тестирование</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Введение в тестирование</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг</li>
                                             <li class="item__list-item">Какие бывают источники ожидаемого результата
@@ -381,12 +394,13 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">8</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">8</div>
+                                        </div>
+                                        <h4 class="item__header">Зачем нужны баг-трекинговые системы</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Зачем нужны баг-трекинговые
-                                            системы</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг-трекинговые системы</li>
                                             <li class="item__list-item">Плюсы использования баг-трекинговых систем</li>
@@ -398,11 +412,13 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">9</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">9</div>
+                                        </div>
+                                        <h4 class="item__header">Введение в тестирование</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Введение в тестирование</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг</li>
                                             <li class="item__list-item">Какие бывают источники ожидаемого результата
@@ -417,12 +433,13 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">10</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">10</div>
+                                        </div>
+                                        <h4 class="item__header">Зачем нужны баг-трекинговые системы</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Зачем нужны баг-трекинговые
-                                            системы</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг-трекинговые системы</li>
                                             <li class="item__list-item">Плюсы использования баг-трекинговых систем</li>
@@ -434,11 +451,13 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">11</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">11</div>
+                                        </div>
+                                        <h4 class="item__header">Введение в тестирование</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Введение в тестирование</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг</li>
                                             <li class="item__list-item">Какие бывают источники ожидаемого результата
@@ -453,12 +472,13 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">12</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">12</div>
+                                        </div>
+                                        <h4 class="item__header">Зачем нужны баг-трекинговые системы</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Зачем нужны баг-трекинговые
-                                            системы</h4>
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг-трекинговые системы</li>
                                             <li class="item__list-item">Плюсы использования баг-трекинговых систем</li>
@@ -470,12 +490,34 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">13</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">13</div>
+                                        </div>
+                                        <h4 class="item__header">Введение в тестирование</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Зачем нужны баг-трекинговые
-                                            системы</h4>
+                                        <ul class="item__list">
+                                            <li class="item__list-item">Что такое баг</li>
+                                            <li class="item__list-item">Какие бывают источники ожидаемого результата
+                                            </li>
+                                            <li class="item__list-item">Как выглядит и кто пишет спецификацию</li>
+                                            <li class="item__list-item">Что делать если в спеке нашли баг</li>
+                                            <li class="item__list-item">Какая разница между понятиями QA и QC</li>
+                                            <li class="item__list-item">Вопросы для закрепления</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="program__item">
+                                <div class="item__content">
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">14</div>
+                                        </div>
+                                        <h4 class="item__header">Зачем нужны баг-трекинговые системы</h4>
+                                    </div>
+                                    <div class="item__body">
                                         <ul class="item__list">
                                             <li class="item__list-item">Что такое баг-трекинговые системы</li>
                                             <li class="item__list-item">Плюсы использования баг-трекинговых систем</li>
@@ -487,33 +529,20 @@
                             </li>
                             <li class="program__item">
                                 <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">14</div>
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <div class="item__num">15</div>
+                                        </div>
+                                        <h4 class="item__header">Введение в тестирование</h4>
                                     </div>
                                     <div class="item__body">
-                                        <h4 class="item__header">Зачем нужны баг-трекинговые
-                                            системы</h4>
                                         <ul class="item__list">
-                                            <li class="item__list-item">Что такое баг-трекинговые системы</li>
-                                            <li class="item__list-item">Плюсы использования баг-трекинговых систем</li>
-                                            <li class="item__list-item">Как найти задачу в jira</li>
-                                            <li class="item__list-item">Вопросы для закрепления</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="program__item">
-                                <div class="item__content">
-                                    <div class="item__logo">
-                                        <div class="item__num">15</div>
-                                    </div>
-                                    <div class="item__body">
-                                        <h4 class="item__header">Зачем нужны баг-трекинговые
-                                            системы</h4>
-                                        <ul class="item__list">
-                                            <li class="item__list-item">Что такое баг-трекинговые системы</li>
-                                            <li class="item__list-item">Плюсы использования баг-трекинговых систем</li>
-                                            <li class="item__list-item">Как найти задачу в jira</li>
+                                            <li class="item__list-item">Что такое баг</li>
+                                            <li class="item__list-item">Какие бывают источники ожидаемого результата
+                                            </li>
+                                            <li class="item__list-item">Как выглядит и кто пишет спецификацию</li>
+                                            <li class="item__list-item">Что делать если в спеке нашли баг</li>
+                                            <li class="item__list-item">Какая разница между понятиями QA и QC</li>
                                             <li class="item__list-item">Вопросы для закрепления</li>
                                         </ul>
                                     </div>
@@ -523,125 +552,203 @@
                     </div>
                 </div>
             </section>
-            <section class="reviews">
+            <section class="reviews" id="reviews">
                 <div class="container">
                     <div class="reviews__row">
                         <h2 class="reviews__header">Отзывы наших выпускников</h2>
-                        <div class="reviews__slider swiper reviews__swiper">
-                            <ul class="slider__list swiper-wrapper">
-                                <li class="slider__item swiper-slide">
-                                    <div class="item__content">
-                                        <div class="item__top">
-                                            <div class="item__logo">
-                                                <img src="./avatars/katya_malkovich.jpg" alt="katya_malkovich">
-                                            </div>
-                                            <h4 class="item__header">Катя Малкович</h4>
+                        <div class="swiper swiper1">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <img src="./avatars/katya_malkovich.jpg" alt="katya_malkovich">
                                         </div>
-                                        <div class="item__text">
-                                            <p>На фото среди выпускников, нашедших работу, я увидела свою знакомую и
-                                                спросила про курсы. Она сказала, что все понятно и доступно. Первые
-                                                занятия были бесплатными. Для меня это было огромным плюсом - я довольно
-                                                далёкий от it человек, можно было за это время понять, мое это или нет.
-                                                Оказалось, мое и теперь я работаю в компании Relesys😄 Огромное спасибо
-                                                за возможность пройти стажировку.</p>
-                                        </div>
+                                        <h4 class="item__header">Катя Малкович</h4>
                                     </div>
-                                </li>
-                                <li class="slider__item swiper-slide">
-                                    <div class="item__content">
-                                        <div class="item__top">
-                                            <div class="item__logo">
-                                                <img src="./avatars/liza_yackevich.jpg" alt="liza_yackevich">
-                                            </div>
-                                            <h4 class="item__header">Лиза Яцкевич</h4>
-                                        </div>
-                                        <div class="item__text">
-                                            <p>Всем привет! Меня зовут Лиза. По образованию я юрист, но не сложилось..
-                                                Выбрала курсы Rocket Science потому, что в программе курса делается упор
-                                                на практику, что очень важно для меня, так как на практике теория
-                                                запоминается лучше. После курсов прошла стажировку и спустя пару
-                                                собеседований и тестовых заданий пригласили на работу. Сейчас я работаю
-                                                в компании HiQo-solutions</p>
-                                        </div>
+                                    <div class="item__text">
+                                        <p>На фото среди выпускников, нашедших работу, я увидела свою знакомую и
+                                            спросила про курсы. Она сказала, что все понятно и доступно. Первые
+                                            занятия были бесплатными. Для меня это было огромным плюсом - я довольно
+                                            далёкий от it человек, можно было за это время понять, мое это или нет.
+                                            Оказалось, мое и теперь я работаю в компании Relesys😄 Огромное спасибо
+                                            за возможность пройти стажировку.</p>
                                     </div>
-                                </li>
-                                <li class="slider__item swiper-slide">
-                                    <div class="item__content">
-                                        <div class="item__top">
-                                            <div class="item__logo">
-                                                <img src="./avatars/yula_manko.png" alt="yula_manko">
-                                            </div>
-                                            <h4 class="item__header">Юля Манько</h4>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <img src="./avatars/liza_yackevich.jpg" alt="liza_yackevich">
                                         </div>
-                                        <div class="item__text">
-                                            <p>Привет. По образованию я учитель математики и информатики.
-                                                Отработав в школе 3 года, поняла, что нужно менять сферу деятельности.
-                                                Нашла курсы в инстаграмме от Rocket Science. Прошла курсы и потом попала
-                                                на стажировку. На стажировке мне очень понравилось, ребята классные,
-                                                отзывчивые, помогали мне, если возникали трудности. После стажировки
-                                                были собеседования. Когда проходила собеседования, то очень волновалась,
-                                                но главное не сдаваться. Спустя некоторое время, мне дали офер в
-                                                компанию
-                                                PR3. Сейчас работаю тестировщиком и мне нравится!</p>
-                                        </div>
+                                        <h4 class="item__header">Лиза Яцкевич</h4>
                                     </div>
-                                </li>
-                            </ul>
+                                    <div class="item__text">
+                                        <p>Всем привет! Меня зовут Лиза. По образованию я юрист, но не сложилось..
+                                            Выбрала курсы Rocket Science потому, что в программе курса делается упор
+                                            на практику, что очень важно для меня, так как на практике теория
+                                            запоминается лучше. После курсов прошла стажировку и спустя пару
+                                            собеседований и тестовых заданий пригласили на работу. Сейчас я работаю
+                                            в компании HiQo-solutions</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <img src="./avatars/yula_manko.png" alt="yula_manko">
+                                        </div>
+                                        <h4 class="item__header">Юля Манько</h4>
+                                    </div>
+                                    <div class="item__text">
+                                        <p>Привет. По образованию я учитель математики и информатики.
+                                            Отработав в школе 3 года, поняла, что нужно менять сферу деятельности.
+                                            Нашла курсы в инстаграмме от Rocket Science. Прошла курсы и потом попала
+                                            на стажировку. На стажировке мне очень понравилось, ребята классные,
+                                            отзывчивые, помогали мне, если возникали трудности. После стажировки
+                                            были собеседования. Когда проходила собеседования, то очень волновалась,
+                                            но главное не сдаваться. Спустя некоторое время, мне дали офер в
+                                            компанию
+                                            PR3. Сейчас работаю тестировщиком и мне нравится!</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <img src="./avatars/natasha_pahirko.png" alt="natasha_pahirko">
+                                        </div>
+                                        <h4 class="item__header">Наташа Пахирко</h4>
+                                    </div>
+                                    <div class="item__text">
+                                        <p>Я - Наталья, мне 30 лет. 30, Карл😂 Ребята, раз уж вы зашли на этот сайт,
+                                            то советую пробовать тестирование, даже если у вас пару красных дипломов
+                                            в другой сфере, вы живёте в небольшом городе, 5 лет как в декрете, у вас
+                                            дети, муж и собака ) Отдельное спасибо Денису за сопровождение на всех
+                                            этапах, вплоть до получения стажировки. Всего через месяц стажировки мне
+                                            предложили работу в компании с самыми классными людьми - iTechArt♥️ Труд,
+                                            много труда, но все получится!</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <img src="./avatars/egor_kuzbar.png" alt="egor_kuzbar">
+                                        </div>
+                                        <h4 class="item__header">Егор Кузьбар</h4>
+                                    </div>
+                                    <div class="item__text">
+                                        <p>Привет, меня зовут Егор! О курсах я узнал от сестры, она
+                                            рассказала о том, что прошла их и предложила мне.
+                                            Я подумал: "Почему бы и нет?" И не прогадал.
+                                            В IT сферу особо раньше не углублялся и, можно сказать,
+                                            начинал всё с нуля. Оказалось, довольно интересно.
+                                            В итоге попал на стажировку в Relesys, за что отдельное
+                                            спасибо Денису. Так же большой респект ему за дальнейшую
+                                            помощь в подборе вакансий, прохождении тестовых заданий
+                                            и дельные советы в поиске работы. На произвол судьбы
+                                            не кинул😁 В итоге я устроился тестировщиком в Яндекс
+                                            через HR фирму Ancor FinTech, далее смогу набираться
+                                            опыта и искать новые возможности для развития.</p>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item__top">
+                                        <div class="item__logo">
+                                            <img src="./avatars/dasha_kolenchenko.png" alt="dasha_kolenchenko">
+                                        </div>
+                                        <h4 class="item__header">Даша Коленченко</h4>
+                                    </div>
+                                    <div class="item__text">
+                                        <p>Привет, меня зовут Даша. С образованием биолога сложно
+                                            найти что-то достойное. Меняя работу за работой,
+                                            поняла, что тестирование — это то, где смогу себя
+                                            реализовать. Друзья порекомендовали курсы Дениса))
+                                            Удобный формат обучения, наполнение и подача информации!
+                                            Все это в совокупности привело на стажировку, и в
+                                            последующем получить оффер от OnTheSpot Development.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="companies">
+            <section class="companies" id="companies">
                 <div class="container">
                     <div class="companies__row">
                         <h2 class="companies__header">Наши студенты работают</h2>
-                        <div class="companies__slider">
-                            <ul class="slider__list">
-                                <li class="slider__item">
-                                    <img src="images/iTechArt-logo.png" height="31" width="155" alt="iTechArt" />
-                                </li>
-                                <li class="slider__item">
-                                    <img src="images/relesys-logo.png" height="51" width="233" alt="relesys" />
-                                </li>
-                                <li class="slider__item">
-                                    <img src="images/ThunderSoft-logo.png" height="51" width="383" alt="ThunderSoft" />
-                                </li>
-                                <li class="slider__item">
-                                    <img src="images/Paralect-logo.png" height="78" width="116" alt="Paralect" />
-                                </li>
-                                <li class="slider__item">
-                                    <img src="images/onthespot-logo.png" height="61" width="174" alt="onthespot" />
-                                </li>
-                                <li class="slider__item">
-                                    <img src="images/RichBrains-logo.png" height="61" width="200" alt="RichBrains" />
-                                </li>
-                                <li class="slider__item">
-                                    <img src="images/av_by-logo.png" height="51" width="152" alt="av.by" />
-                                </li>
-                                <li class="slider__item">
-                                    <img src="images/softvoya-logo.png" height="81" width="227" alt="softvoya" />
-                                </li>
-                            </ul>
+                        <div class="swiper swiper3">
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
+                                    <div class="item__top">
+                                        <img src="images/iTechArt-logo.png" height="31" width="155" alt="iTechArt" />
+                                    </div>
+                                    <div class="item__bottom">
+                                        <img src="images/onthespot-logo.png" height="61" width="174" alt="onthespot" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item__top">
+                                        <img src="images/relesys-logo.png" height="51" width="233" alt="relesys" />
+                                    </div>
+                                    <div class="item__bottom">
+                                        <img src="images/RichBrains-logo.png" height="61" width="200" alt="RichBrains" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item__top">
+                                        <img src="./images/ThunderSoft-logo.png" alt="ThunderSoft">
+                                    </div>
+                                    <div class="item__bottom">
+                                        <img src="images/av_by-logo.png" height="51" width="152" alt="av.by" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item__top">
+                                        <img src="images/Paralect-logo.png" height="78" width="116" alt="Paralect" />
+                                    </div>
+                                    <div class="item__bottom">
+                                        <img src="images/softvoya-logo.png" height="81" width="227" alt="softvoya" />
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item__top">
+                                        <img src="images/customertimes-logo.png" alt="customertimes-logo" />
+                                    </div>
+                                    <div class="item__bottom">
+                                        <img src="images/HiQo-logo.png" height="94" width="128" alt="HiQo" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </section>
-            <section class="certificate">
+            <section class="certificate" id="certificate">
                 <div class="container">
                     <div class="certificate__row">
                         <div class="certificate__img">
-                            <img src="images/certificate.png" alt="certificate" />
+                            <a href="images/certificate.png" data-lightbox='cert'>
+                                <img src="images/certificate.png" alt="certificate" id='certificateImage'/>
+                            </a>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="faq">
+            <section class="faq" id="faq">
                 <div class="container">
                     <div class="faq__row">
                         <h2 class="faq__header">Часто задаваемые вопросы</h2>
-                        <div class="faq__slider">
-                            <ul class="slider__list">
-                                <li class="slider__item">
+                        <div class="swiper swiper2">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide">
                                     <div class="item__logo">
                                         <div class="item__num">1</div>
                                     </div>
@@ -654,8 +761,38 @@
                                         мое и теперь я работаю в компании Relesys😄 Огромное спасибо за возможность
                                         пройти
                                         стажировку.</p>
-                                </li>
-                            </ul>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item__logo">
+                                        <div class="item__num">2</div>
+                                    </div>
+                                    <h4 class="item__header">Нужен ли английский на курсе?</h4>
+                                    <p class="item__text">На фото среди выпускников, нашедших работу, я увидела свою
+                                        знакомую и спросила про курсы. Она сказала, что все понятно и доступно.
+                                        Первые занятия были бесплатными. Для меня это было огромным плюсом - я довольно
+                                        далёкий от it человек, можно было за это время понять, мое это или нет.
+                                        Оказалось,
+                                        мое и теперь я работаю в компании Relesys😄 Огромное спасибо за возможность
+                                        пройти
+                                        стажировку.</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="item__logo">
+                                        <div class="item__num">3</div>
+                                    </div>
+                                    <h4 class="item__header">Нужен ли английский на курсе?</h4>
+                                    <p class="item__text">На фото среди выпускников, нашедших работу, я увидела свою
+                                        знакомую и спросила про курсы. Она сказала, что все понятно и доступно.
+                                        Первые занятия были бесплатными. Для меня это было огромным плюсом - я довольно
+                                        далёкий от it человек, можно было за это время понять, мое это или нет.
+                                        Оказалось,
+                                        мое и теперь я работаю в компании Relesys😄 Огромное спасибо за возможность
+                                        пройти
+                                        стажировку.</p>
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
                         </div>
                     </div>
                 </div>
@@ -681,21 +818,21 @@
                         </ul>
                         <ul class="footer__list footer__list_2">
                             <li class="footer__item">
-                                <a href="#">Тарифы</a>
+                                <a href="#prices">Тарифы</a>
                             </li>
                             <li class="footer__item">
-                                <a href="#">Наши преимущества</a>
+                                <a href="#advantages">Наши преимущества</a>
                             </li>
                             <li class="footer__item">
-                                <a href="#">Отзывы</a>
+                                <a href="#reviews">Отзывы</a>
                             </li>
                             <li class="footer__item">
-                                <a href="#">Вопросы-ответы</a>
+                                <a href="#faq">Вопросы-ответы</a>
                             </li>
                         </ul>
                     </div>
                     <div class="footer__link">
-                        <a href="https://youtube.com" target="_blank">
+                        <a href="#" target="_blank">
                             <svg width="37" height="32" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -703,7 +840,7 @@
                                     fill="white" />
                             </svg>
                         </a>
-                        <a href='https://instagram.com' target="_blank">
+                        <a href='https://www.instagram.com/rocket_science_it_courses/' target="_blank">
                             <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -718,6 +855,7 @@
         </footer>
     </div>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="/dist/js/lightbox-plus-jquery.js"></script>
     <script src="./script.js"></script>
 </body>
 
