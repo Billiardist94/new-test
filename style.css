@@ -118,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .intro .intro__row .intro__body .intro__title {
-  font-family: "Death Star", sans-serif;
+  font-family: 'Times New Roman', Times, serif, sans-serif;
   font-size: 150px;
   line-height: 156px;
   letter-spacing: 0.02em;
