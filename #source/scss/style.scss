@@ -56,6 +56,11 @@ $main-yellow: #E4C85A;
 $main-yellow-rgb: 244, 145, 30;
 $second-yellow: #F5E098;
 //__________________________Mixins__________________________
+@mixin _1680 {
+  @media (max-width: 1680px) {
+    @content;
+  }
+}
 @mixin _1200 {
   @media (max-width: 1200px){
     @content;
@@ -204,7 +209,6 @@ $second-yellow: #F5E098;
   background: $second-yellow linear-gradient($second-yellow, $main-yellow);
   border-radius: 50px;
   font-family: 'FuturaDemiC', sans-serif;
-  font-weight: 600;
   font-size: 18px;
   line-height: 21px;
   letter-spacing: 0.06em;
@@ -303,6 +307,7 @@ $second-yellow: #F5E098;
   color: $second-yellow;
   @include _576{
     font-size: 50px;
+    top: 51%;
   }
   @include _320{
     font-size: 40px;
@@ -366,7 +371,7 @@ $second-yellow: #F5E098;
   animation-delay: 2s;
   animation-iteration-count: infinite;
   animation-fill-mode: forwards;
-  animation-timing-function: ease-in;
+  animation-timing-function: ease-in-out;
   @keyframes anim_pulse {
     0%{
       opacity: 1;
@@ -429,10 +434,11 @@ $second-yellow: #F5E098;
   }
 }
 //__________________________BODY, WRAPPER, CONTAINER, CONTENT__________________________
-body{
+body{  
   background-color: $background-color;
   font-family: 'FuturaBookC', sans-serif;
   color: $text-color;
+  overflow-x: hidden;
 }
 .wrapper {
   min-height: 100%;
@@ -442,7 +448,10 @@ body{
   background-image: url('../../images/background.png');
   background-repeat: no-repeat;
   background-position: top;
-  background-size: contain;
+  background-size: cover;
+  @include _1680{
+    background-size: contain;
+  }
   @include _576{
     background-position: 0 45px;
   }
@@ -457,7 +466,10 @@ body{
 }
 .content{
   flex: 1 1 auto;
-  background: url(../../images/pattern-bg.png) repeat-y;
+  background: url(../../images/pattern-bg.png);
+  background-repeat: repeat-y;
+  background-position: top;
+  background-size: cover;
   @include _768{
     padding-top: 100px;
   }
@@ -484,7 +496,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 90;
+    z-index: 999;
   }
   @media only screen
   and (min-device-width : 320px)
@@ -500,90 +512,34 @@ body{
   @include _320{
 
   }
-  .header__row{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
-    .header__logo{
-      a{
-        @extend %logo;
-      }
+  .header__container{
+    max-width: 100vw; 
+    padding: 0 100px;
+    @include _1200{
+      max-width: 1200px; 
+      padding: 0 15px;
     }
-    .header__menu{
-      .header__btn{
-        width: 48px;
-        height: 48px;
-        background-color: transparent;
-        overflow: hidden;
-        svg{
-          width: 100%;
-          height: 100%;
-          @media(min-width: 1200px){
-            &:hover{
-              path{
-                transition: .3s;
-                stroke: $main-yellow;
-              }
-            }
-          }
-          @include _1200{
-            height: 100%;
-            &:active{
-              path{
-                transition: .3s;
-                stroke: $main-yellow;
-              }
-            }
-          }
+    .header__row{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      .header__logo{
+        a{
+          @extend %logo;
         }
       }
-    }
-    .menu__burger{
-      position: absolute;
-      z-index: 90;
-      background-color: $text-blue-color;
-      transition: .3s;
-      width: 600px;
-      height: auto;
-      top: 0;
-      right: -600px;
-      @include _768{
-        width: 70%;
-        right: -70%;
-      }
-      @include _576{
-        width: 100%;
-        right: -100%;
-      }
-      .burger__row{
-        display: flex;
-        flex-direction: column;
-        .burger__top{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 15px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-          .burger__header{
-            font-family: "DeathStar", sans-serif;
-            font-size: 26px;
-            line-height: 30px;
-            letter-spacing: 0.06em;
-          }
-          .burger__btn{
-            width: 40px;
-            height: 40px;
-            background-color: transparent;
-            overflow: hidden;
-            transition: .3s;
-            svg{
-              width: 100%;
-              height: 100%;
-            }
+      .header__menu{
+        .header__btn{
+          width: 48px;
+          height: 48px;
+          background-color: transparent;
+          overflow: hidden;
+          svg{
+            width: 100%;
+            height: 100%;
             @media(min-width: 1200px){
               &:hover{
-                transform: scale(1.1);
                 path{
                   transition: .3s;
                   stroke: $main-yellow;
@@ -601,40 +557,105 @@ body{
             }
           }
         }
-        .burger__list{
+      }
+      .menu__burger{
+        position: absolute;
+        z-index: 90;
+        background-color: $text-blue-color;
+        transition: all .3s ease-in-out;
+        width: 600px;
+        height: auto;
+        top: 0;
+        right: -600px;
+        @include _768{
+          width: 70%;
+          right: -70%;
+        }
+        @include _576{
           width: 100%;
-          .burger__item{
-            padding: 20px 0 20px 20px;
+          right: -100%;
+        }
+        .burger__row{
+          display: flex;
+          flex-direction: column;
+          .burger__top{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            a{
-              display: block;
-              @extend %h4-header;
-              color: $text-color;
+            .burger__header{
+              font-family: "DeathStar", sans-serif;
+              font-size: 26px;
+              line-height: 30px;
+              letter-spacing: 0.06em;
+            }
+            .burger__btn{
+              width: 40px;
+              height: 40px;
+              background-color: transparent;
+              overflow: hidden;
               transition: .3s;
+              svg{
+                width: 100%;
+                height: 100%;
+              }
               @media(min-width: 1200px){
                 &:hover{
-                  color: $main-yellow;
+                  transform: scale(1.1);
+                  path{
+                    transition: .3s;
+                    stroke: $main-yellow;
+                  }
                 }
               }
               @include _1200{
                 height: 100%;
                 &:active{
-                  color: $main-yellow;
+                  path{
+                    transition: .3s;
+                    stroke: $main-yellow;
+                  }
+                }
+              }
+            }
+          }
+          .burger__list{
+            width: 100%;
+            .burger__item{
+              padding: 20px 0 20px 20px;
+              border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+              a{
+                display: block;
+                @extend %h4-header;
+                color: $text-color;
+                transition: .3s;
+                @media(min-width: 1200px){
+                  &:hover{
+                    color: $main-yellow;
+                  }
+                }
+                @include _1200{
+                  height: 100%;
+                  &:active{
+                    color: $main-yellow;
+                  }
                 }
               }
             }
           }
         }
       }
-    }
-    .menu__burger-opened{
-      right: 0;
+      .menu__burger-opened{
+        right: 0;
+      }
     }
   }
 }
 //__________________________INTRO__________________________
 .intro{
  margin-bottom: 150px;
+ 
  @include _768{
   margin-bottom: 70px;
  }
@@ -644,123 +665,153 @@ body{
  @include _320{
    margin-bottom: 30px;
  }
- .intro__row{
-   display: flex;
-   justify-content: flex-start;
-   @include _320{
-     display: block;
+ .intro__container{
+  max-width: 100vw; 
+  padding: 0 100px;
+  @include _1200{
+    max-width: 1200px; 
+    padding: 0 15px;
+  }
+  .intro__row{
+    display: flex;
+    justify-content: flex-start;
+    height: calc(100vh - 90px);
+    @media only screen
+     and (min-device-width : 320px)
+     and (max-device-width : 992px)
+     and (orientation : landscape) {
+       height: calc(100% - 90px);
    }
-   .intro__body{
-     flex: 0 1 50%;
-     @include _768{
-       flex: 0 1 100%;
-     }
-     .intro__title{
-       @extend %intro-title;
-     }
-     .intro__subtitle{
-       @extend %intro-subtitle;
-     }
-     .intro__counter{
-       width: 224px;
-       margin: 0 auto 20px auto;
-       @include _768{
-        margin: 0 auto 60px auto;
-       }
-       @include _576{
-        margin: 0 auto 30px auto;
-       }
-       @include _320{
-         text-align: center;
-         margin-bottom: 10px;
-       }
-       .counter-text{
-         @extend %intro-subtitle;
-         font-size: 20px;
-         line-height: 28px;
-         letter-spacing: 0.075em;
-         margin-bottom: 3px;
-         @include _320{
-           font-size: 16px;
-           line-height: 16px;
-         }
-       }
-       .counter-link{
-         background: linear-gradient(85.99deg, rgba(253, 253, 253, 0.03) 0.95%, rgba(253, 253, 253, 0.3) 53.47%, rgba(253, 253, 253, 0) 107.84%);
-         text-align: center;
-         a{
-           display: block;
-           color: $text-color;
-           span{
-             &:first-child{
-              font-family: 'DeathStar', sans-serif;
-              font-size: 40px;
-              line-height: 46px;
-              letter-spacing: 0.215em;
-             }
-             &:last-child{
-              font-family: FuturaDemiC;
-              font-weight: 600;
-              font-size: 14px;
-              line-height: 19px;
-              letter-spacing: 0.075em;
-              text-transform: uppercase;
-             }
-           }
-         }
-       }
-     }
-     .intro__links{
-       @include _768{
-         text-align: center;
-       }
-       .intro__text{
-         font-family: 'FuturaBookC', sans-serif;
-         font-size: 36px;
-         line-height: 41px;
-         color: #CFCFCF;
-         margin-bottom: 15px;
-         @include _768{
-           font-size: 25px;
-           line-height: 35px;
-         }
-         @include _320{
-           font-size: 20px;
-           line-height: 20px;
-         }
-       }
-       .intro__btn{
-         display: flex;
-         justify-content: space-around;
-         @include _768{
-           flex-direction: column;
-           align-items: center;
-         }
-         button{
-           background-color: transparent;
-           border-radius: 40px;
-           overflow: hidden;
-           transition: .3s;
-           width: 245px;
-           height: 71px;
-           position: relative;
-           &:hover{
-             transform: scale(1.05);
-           }
-          @extend %btn-animation;
-          @extend %btn-pulse;
-         }
-         button:first-child{
-           @include _768{
-             margin-bottom: 20px;
-           }
-           @include _576{
-             margin-bottom: 10px;
-           }
-         }
-       }
-     }
-   }
+    @include _320{
+      display: block;
+    }
+    .intro__body{
+      flex: 0 1 600px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @include _1680{
+        flex: 0 1 40%;
+      }
+      @include _768{
+        flex: 0 1 100%;
+      }
+      @include _480{
+        justify-content: space-around;
+      }
+      .intro__title{
+        @extend %intro-title;
+      }
+      .intro__subtitle{
+        @extend %intro-subtitle;
+      }
+      .intro__counter{
+        width: 224px;
+        margin: 0 auto 20px auto;
+        @include _768{
+         margin: 0 auto 60px auto;
+        }
+        @include _576{
+         margin: 0 auto 30px auto;
+        }
+        @include _320{
+          text-align: center;
+          margin-bottom: 10px;
+        }
+        .counter-text{
+          @extend %intro-subtitle;
+          font-size: 20px;
+          line-height: 28px;
+          letter-spacing: 0.07em;
+          margin-bottom: 3px;
+          @include _320{
+            font-size: 16px;
+            line-height: 16px;
+          }
+        }
+        .counter-link{
+          background: linear-gradient(85.99deg, rgba(253, 253, 253, 0.03) 0.95%, rgba(253, 253, 253, 0.3) 53.47%, rgba(253, 253, 253, 0) 107.84%);
+          text-align: center;
+          a{
+            display: block;
+            color: $text-color;
+            padding: 5px;
+            span{
+              &:first-child{
+               font-family: 'DeathStar', sans-serif;
+               font-size: 40px;
+               line-height: 46px;
+               letter-spacing: 0.215em;
+              }
+              &:last-child{
+               font-family: FuturaDemiC;
+               font-weight: 600;
+               font-size: 14px;
+               line-height: 19px;
+               letter-spacing: 0.075em;
+               text-transform: uppercase;
+              }
+            }
+          }
+        }
+      }
+      .intro__links{
+        padding-bottom: 20px;
+        @include _768{
+          text-align: center;
+        }
+        .intro__text{
+          font-family: 'FuturaBookC', sans-serif;
+          font-size: 36px;
+          line-height: 41px;
+          color: #CFCFCF;
+          margin-bottom: 15px;
+          @include _768{
+            font-size: 25px;
+            line-height: 35px;
+          }
+          @include _320{
+            font-size: 20px;
+            line-height: 20px;
+          }
+        }
+        .intro__btn{
+          display: flex;
+          justify-content: space-between;
+          width: 85%;
+          @include _992{
+           width: 100%;
+          }
+          @include _768{
+            flex-direction: column;
+            align-items: center;
+          }
+          button{
+            background-color: transparent;
+            border-radius: 40px;
+            overflow: hidden;
+            transition: .3s;
+            width: 245px;
+            height: 71px;
+            position: relative;
+            &:hover{
+              transform: scale(1.05);
+            }
+           @extend %btn-animation;
+          }
+          button:first-child{
+            @include _768{
+              margin-bottom: 20px;
+            }
+            @include _576{
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
  }
 }
 //__________________________PRICES__________________________
@@ -941,6 +992,7 @@ body{
               @extend %yellow-btn;
               position: relative;
               @extend %btn-pulse;
+              overflow: hidden;
             }
           }
         }
@@ -1071,6 +1123,7 @@ body{
        @extend %yellow-btn;
        position: relative;
        @extend %btn-pulse;
+       overflow: hidden;
      }
    }
  }
@@ -1252,6 +1305,9 @@ body{
            }
            .item__header{
              @extend %h4-header;
+             a{
+               color: $text-color;
+             }
            }
          }
          .item__text{
@@ -1321,6 +1377,22 @@ body{
            }
            img{
              max-width: 100%;
+           }
+         }
+         #onTheSpot-logo{
+           path{
+             fill: #ffffff;
+             &:nth-child(8){
+               fill: $background-color;
+             }
+           }
+           rect{
+            fill: #ffffff;
+          }
+         }
+         #iTechArt-logo{
+           path{
+            fill: #ffffff;
            }
          }
        }
@@ -1557,4 +1629,43 @@ body{
      }
    }
  }
+}
+.scrollup{
+  width:200px;
+  height:200px;
+  opacity: 0.3;
+  position:fixed;
+  transform: rotate(-47deg) scale(.5);
+  bottom:0;
+  right:0;
+  display:none;
+  text-indent:-9999px;
+  background-image: url('../../images/rocket.png');
+  background-repeat: no-repeat;
+  transition: .3s;
+  @include _1200{
+    display: none !important;
+  }
+  &:hover{
+    opacity: 0.7;
+  }
+}
+  .anim__rocket{
+    animation-name: anim__rocket;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+}
+  @keyframes anim__rocket {
+    0%{
+      bottom: 0;
+    }
+    50%{
+      bottom: 75px;
+      opacity: 0;
+    }
+    100%{
+      bottom: 150px;
+      
+    }
 }

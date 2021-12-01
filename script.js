@@ -1,3 +1,5 @@
+// ___Swipers___
+
 const swiper1 = new Swiper(".swiper1", {
     speed: 1000,
     slidesPerView: 1,
@@ -53,9 +55,14 @@ const swiper3 = new Swiper(".swiper3", {
     breakpoints: {
         // when window width is >= 320px
         320: {
-        slidesPerView: 2,
-        spaceBetween: 20
+        slidesPerView: 1,
+        spaceBetween: 20,
         },
+        // when window width is >= 360px
+        360: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            },
         // when window width is >= 425px
         425: {
         slidesPerView: 2,
@@ -99,7 +106,8 @@ openBurgerBtn.addEventListener('click', openBurger);
 closeBurgerBtn.addEventListener('click', closeBurger);
 content.addEventListener('click', closeBurger);
 window.addEventListener('scroll', (e) => {
-    if(window.innerHeight > 590) {
+    if(window.innerHeight > 567) {
+        console.log(window.innerHeight);
         closeBurger()
     }
 });
@@ -116,3 +124,33 @@ window.onload = () => {
     document.querySelector('.content').style.backgroundPosition = "0px " + (0 + (Math.max(document.documentElement.scrollTop, document.body.scrollTop) / 8)) + "px";
     }
 };
+
+// ___Anim-rocket___
+
+const rocket = document.querySelector('.scrollup');
+const rocketDispaly = getComputedStyle(rocket).display;
+function rocketGo(e) {
+    e.preventDefault;
+    rocket.classList.add('anim__rocket');
+    setTimeout(() => {
+        rocket.classList.remove('anim__rocket')
+    },1000)
+}
+rocket.addEventListener('click', rocketGo);
+
+$(document).ready(function(){
+         
+    $(window).scroll(function(){
+    if ($(this).scrollTop() > 100) {
+    $('.scrollup').fadeIn();
+    } else {
+    $('.scrollup').fadeOut();
+    }
+    });
+     
+    $('.scrollup').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 0);
+    return false;
+    });
+     
+    });
